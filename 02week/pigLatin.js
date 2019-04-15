@@ -8,9 +8,12 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(str) {
+// 01. translate simple word. 
+// trimmed (no spaces before or after) and lowercase. .trim() .toLowercase()
+  str = str.trim().toLowercase()
+// put first letter at end of word, add "ay".
 
-  // Your code here
 
 }
 
