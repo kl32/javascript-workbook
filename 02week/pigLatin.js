@@ -11,22 +11,17 @@ const rl = readline.createInterface({
 function pigLatin(str) {
 // 01. translate simple word. 
 // trimmed (no spaces before or after) and lowercase. .trim() .toLowercase()
-  str = str.trim().toLowercase()
-// put first letter at end of word, add "ay".
-  const vowels = ["a", "e", "i", "o", "u"];
-  let vowelIndex = 0;
-
-  if (vowels.includes(str[o])) {
-    return str + "yay";
+  str = str.trim().toLowercase();
+// determine if word begins with vowel
+  const regex = /[aeiouAEIOU]/gi;
+  if (str[0].match(regex)) {
+    str + 'yay';
   } else {
-    for (let char of str) {
-      if(vowels.includes(char)) {
-        vowelIndex = str.indexOf(char);
-        break;
-      }
-    }
-    return str.slice(vowelIndex) + str.slice(0, vowelIndex) + "ay";
+    const searchConsonant = str.indexOf(str.match(regex) [0]);
+    pigLatin = str.substr(searchConsonant) + str.substr(0, searchConsonant) + 'ay';
   }
+
+return pigLatin;
 
 
 }
