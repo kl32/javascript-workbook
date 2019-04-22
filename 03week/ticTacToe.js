@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+let playerTurn = 'O';
 
 function printBoard() {
   console.log('   0  1  2');
