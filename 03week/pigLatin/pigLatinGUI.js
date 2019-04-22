@@ -17,4 +17,3 @@ str = str.trim().toLowercase()
   }
 
 
-}

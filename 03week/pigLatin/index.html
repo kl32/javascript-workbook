@@ -3,11 +3,26 @@
         <head>
             <title>pig latin</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" href="pigLatin.js">
+            <link rel="stylesheet" href="reset.css">
+            <link rel="stylesheet" href="style.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
         </head>
 
         <body>
-
-        <script src="pigLatinGUI.js"></script>
+            <h1>pig latin translator</h1>
+            <main>
+            <section>
+                <form>
+                    <label for="engword"><h3>english here:</h3></label>
+                    <input type="text" id="engword" name="engword">
+                    <button id="answer">!</button>
+                </form>
+            </section>
+            <section>
+                <p id="pLatin">answer here.</p>
+            </section>
+            </main>
+            
+            <script src="pigLatinGUI.js"></script>
         </body>
     </html>
