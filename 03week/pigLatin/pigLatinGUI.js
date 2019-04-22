@@ -22,10 +22,14 @@ function pigLatin(str) {
       } else {
         result.push('ay');
         return result.join('');
+        }
       }
     }
+    document.getElementById("pLatin").innerHTML = '';
   }
-}
+
+
+
 
 
 function getPrompt() {
