@@ -10,13 +10,14 @@ const rl = readline.createInterface({
 
 function pigLatin(str) {
   let vowels = ['a', 'e', 'i', 'o', 'u'],
-    result = str.trim().toLowerCase().split('');
+    trimmedWord = str.trim().toLowerCase(),
+    result = trimmedWord.split('');
 
-  if (vowels.includes(str.charAt(0))) {
+  if (vowels.includes(trimmedWord.charAt(0))) {
     return str += 'yay';
   } else {
-    for (var i = 0; i < str.length; i++) {
-      if (!vowels.includes(str[i])) {
+    for (var i = 0; i < trimmedWord.length; i++) {
+      if (!vowels.includes(trimmedWord[i])) {
         result.push(result.shift());
       } else {
         result.push('ay');
