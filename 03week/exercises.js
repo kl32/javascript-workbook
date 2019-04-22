@@ -50,10 +50,11 @@ console.log("FORD & HONDA NEW ARRAY: ", removedCars);
 
 // splice
 // Use the splice method to remove the 2nd and 3rd items in the array carsInReverse and add Ford and Honda in their place.
-console.log("REMOVE 2 & 3 INSERT FORD & HONDA: ", carsInReverse.splice(2, 2, 'Ford', 'Honda'));
+console.log("REMOVE 2 & 3 INSERT FORD & HONDA: ", carsInReverse.splice(2, 2, 'Ford', 'Honda');
 
 // push
 // Use the push method to add the types of cars that you removed using the splice method to the carsInReverse array.
+
 
 // pop
 // Use the pop method to remove and console.log the last item in the array carsInReverse.
