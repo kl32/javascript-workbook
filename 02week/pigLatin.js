@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 function pigLatin(str) {
   let vowels = ['a', 'e', 'i', 'o', 'u'],
-    result = str.toLowerCase().split('');
+    result = str.trim().toLowerCase().split('');
 
   if (vowels.includes(str.charAt(0))) {
     return str += 'yay';
