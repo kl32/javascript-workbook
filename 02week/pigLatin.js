@@ -9,21 +9,21 @@ const rl = readline.createInterface({
 
 
 function pigLatin(str) {
-// 01. translate simple word. 
-// trimmed (no spaces before or after) and lowercase. .trim() .toLowercase()
-  str = str.trim().toLowercase();
-// determine if word begins with vowel
-  const regex = /[aeiouAEIOU]/gi;
-  if (str[0].match(regex)) {
-    str + 'yay';
+  let vowels = ['a', 'e', 'i', 'o', 'u'],
+    result = str.toLowerCase().split('');
+
+  if (vowels.includes(str.charAt(0))) {
+    return str += 'yay';
   } else {
-    const searchConsonant = str.indexOf(str.match(regex) [0]);
-    pigLatin = str.substr(searchConsonant) + str.substr(0, searchConsonant) + 'ay';
+    for (var i = 0; i < str.length; i++) {
+      if (!vowels.includes(str[i])) {
+        result.push(result.shift());
+      } else {
+        result.push('ay');
+        return result.join('');
+      }
+    }
   }
-
-return pigLatin;
-
-
 }
 
 
