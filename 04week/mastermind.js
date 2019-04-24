@@ -48,10 +48,10 @@ function generateHint(solution, guess) {
   for (let i = 0; i < solutionArray.length; i++) {
     if (guessArray.indexOf([i]) == solutionArray[i]) {
       let targetIndex = guessArray;
-        if (targetIndex > -1) {
-          correctLetters = correctLetters +1;
-          solutionArray[i] = null;
-        }
+    }
+    if (targetIndex > -1) {
+      correctLetters = correctLetters +1;
+      solutionArray[i] = null;
     }
   }
 
