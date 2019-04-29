@@ -8,8 +8,9 @@ const rl = readline.createInterface({
 });
 
 let board = [];
-let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let solution = 'abcd';
+let letters = ['a', 'b', 'c', 'd'];
+let colors = require('colors');
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -35,36 +36,31 @@ function generateHint(solution, guess) {
   let guessArray = guess.split(''); 
 
   let correctLetterLocations = 0;
+  let correctLetters = 0;
 
   for (let i = 0; i < solutionArray.length; i++) {
-    if (solutionArray[i] == guessArray[i]) {
+    if (solutionArray[i] === guessArray[i]) {
       correctLetterLocations = correctLetterLocations +1;
       solutionArray[i] = null;
     }
   }
 
-  let correctLetters = 0;
-
   for (let i = 0; i < solutionArray.length; i++) {
-    if (guessArray.indexOf([i]) == solutionArray[i]) {
-      let targetIndex = guessArray;
-    }
-    if (targetIndex > -1) {
-      correctLetters = correctLetters +1;
-      solutionArray[i] = null;
+    if (guessArray.indexOf([i]) === solutionArray[i]) {
+      let targetIndex = guessArray.indexOf([i]);
+        if (targetIndex > -1) {
+          correctLetters = correctLetters +1;
+          solutionArray[i] = null;
+      }
     }
   }
 
-  let colors = require('colors');
-
-  return 'correctLetterLocations.red - correctLetters.white';
+  return correctLetterLocations.red + correctLetters.white;
   
-
 }
 
+
 function mastermind(guess) {
-  const solution = 'abcd'; // Comment this out to generate a random solution
-  
   if (guess === solution) {
     return 'you guessed it!';
   }
