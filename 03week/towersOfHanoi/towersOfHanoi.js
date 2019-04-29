@@ -19,23 +19,50 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startAnswer, endAnswer) {
+  console.log("start " + startAnswer);
 
+  console.log("end " + endAnswer);
+
+  let firstItem = startAnswer.pop();
+
+  let newStack = endAnswer.push(firstItem);
+
+  return newStack;
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startAnswer, endAnswer) {
+  const myPiece = startAnswer[startAnswer.length - 1];
 
+  const destination = endAnswer[endAnswer.length - 1];
+
+  if (myPiece > destination) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function checkForWin() {
-  // Your code here
+  if (stacks.b.length == 4 || stacks.c.length == 4) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  let startAnswer = stacks[startStack];
+  let endAnswer = stacks[endStack];
+
+  if (isLegal(startAnswer, endAnswer)) {
+    movePiece(startAnswer, endAnswer);
+  } else {
+    console.log("not a legal move");
+  }
+
+  checkForWin();
 
 }
 
