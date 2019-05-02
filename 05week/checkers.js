@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 
 class Checker {
-  constructor(color){
+  constructor(color) {
     if(color === 'white') {
       this.symbol = '○';
     } else{
@@ -19,9 +19,48 @@ class Checker {
 }
 
 class Board {
-  constructor() {
-    this.grid = []
+  constructor(grid, checkers){
+    this.grid = [];
+    this.checkers = [];
   }
+
+  //method createcheckers 
+  createCheckers() {
+    let whitePositions = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+
+    let blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+    for (let i=0, len=whitePositions.length; i<len; i++) {
+      // inner loop applies to sub-arrays
+      for (var j=0, len2=whitePositions[i].length; j<len2; j++) {
+          // accesses each element of each sub-array in turn
+          let white = new Checker('white');
+          whitePositions.grid[i][j].push(this.checkers);
+      }
+  }
+
+  for (let i=0, len=blackPositions.length; i<len; i++) {
+    // inner loop applies to sub-arrays
+    for (var j=0, len2=blackPositions[i].length; j<len2; j++) {
+        // accesses each element of each sub-array in turn
+        black = new Checker('black').grid[i][j].push(this.checkers);
+        
+    }
+}
+  }
+//row = whitePositions[i][0]
+//column = whitePositions[i][1]
+//let white = new Checker('white').whitePositions[].push(this.checkers);
+//let black = new Checker('black').blackPositions[].push(this.checkers);
+  
   // method that creates an 8x8 array, filled with null values
   createGrid() {
     // loop to create the 8 rows
@@ -33,6 +72,7 @@ class Board {
       }
     }
   }
+
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -56,13 +96,13 @@ class Board {
       string += "\n";
     }
 
-    killChecker(position) {
 
-    }
+
+  
     console.log(string);
   }
 
-  // Your code here
+
 }
 
 class Game {
@@ -71,6 +111,7 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
   }
 }
 
