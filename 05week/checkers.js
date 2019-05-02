@@ -8,8 +8,10 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker() {
+  constructor(){
+    
+  }
 }
 
 class Board {
