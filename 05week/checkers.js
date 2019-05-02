@@ -8,9 +8,13 @@ const rl = readline.createInterface({
 });
 
 
-class Checker() {
-  constructor(){
-    
+class Checker {
+  constructor(color){
+    if(color === 'white') {
+      this.symbol = '○';
+    } else{
+        this.symbol = '●';
+    }
   }
 }
 
@@ -50,6 +54,10 @@ class Board {
       string += rowOfCheckers.join(' ');
       // add a 'new line'
       string += "\n";
+    }
+
+    killChecker(position) {
+
     }
     console.log(string);
   }
