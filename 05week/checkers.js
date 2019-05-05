@@ -38,28 +38,23 @@ class Board {
       [7, 0], [7, 2], [7, 4], [7, 6]
     ];
 
-    for (let i=0, len=whitePositions.length; i<len; i++) {
-      // inner loop applies to sub-arrays
-      for (var j=0, len2=whitePositions[i].length; j<len2; j++) {
-          // accesses each element of each sub-array in turn
-          let white = new Checker('white');
-          whitePositions.grid[i][j].push(this.checkers);
-      }
-  }
-
-  for (let i=0, len=blackPositions.length; i<len; i++) {
-    // inner loop applies to sub-arrays
-    for (var j=0, len2=blackPositions[i].length; j<len2; j++) {
-        // accesses each element of each sub-array in turn
-        black = new Checker('black').grid[i][j].push(this.checkers);
-        
+    for(let i = 0; i < 12; i++) {
+      let white = new Checker('white');
+      let whiteRow = whitePositions[i][0];
+      let whiteColumn = whitePositions [i][1];
+      let black = new Checker('black');
+      let blackRow = blackPositions[i][0];
+      let blackColumn = blackPositions[i][1];
+      this.checkers.push(white, black);
+      this.grid[whiteRow][whiteColumn] = white;
+      this.grid[blackRow][blackColumn] = black;
     }
 }
+
+  selectChecker(row, column) {
+    return this.grid[row][column];
   }
-//row = whitePositions[i][0]
-//column = whitePositions[i][1]
-//let white = new Checker('white').whitePositions[].push(this.checkers);
-//let black = new Checker('black').blackPositions[].push(this.checkers);
+
   
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -112,6 +107,17 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.createCheckers();
+  }
+
+  moveChecker(start, end){
+    let startRow = start[0];
+    let startColumn  = start[1];
+    let endRow = end[0];
+    let endColumn = end[1];
+
+    let checker = this.board.selectChecker(startRow, startColumn);
+    this.board.grid[endRow][endColumn] = checker;
+    this.board.grid[startRow][startColumn] = null;
   }
 }
 
