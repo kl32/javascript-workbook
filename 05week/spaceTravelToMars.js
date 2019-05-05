@@ -15,14 +15,14 @@ class CrewMember {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
-    this.ship = ship;
-    enterShip: function() {
-      return 
-    }
+    this.ship = null;
+  }
+
+  enterShip(newShip) {
+    newShip.addCrewMember(this);
+    this.ship = newShip;
   }
 }
-
-CrewMember.enterShip();
 
 const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry', null)
 
@@ -34,9 +34,18 @@ class Ship {
     this.name = name;
     this.type = type;
     this.ability = ability;
-    this.crew = crew;
-    missionStatement: function() {
+    this.crew = [];
+  }
 
+  addCrewMember(CrewMember) {
+    this.crew.push(CrewMember);
+  }
+
+  missionStatement() {
+    if(this.crew.length > 0) {
+      return this.ability
+    } else {
+        return "Can't perform a mission yet."
     }
   }
 }
