@@ -55,6 +55,18 @@ class Board {
     return this.grid[row][column];
   }
 
+  killChecker(position) {
+    let row = position.row;
+    let column = position.column;
+
+    
+
+    let i = this.checkers.indexOf(position);
+
+    this.checkers.splice(i, 1);
+
+    this.grid[row][column] = null;
+  }
   
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -112,12 +124,17 @@ class Game {
   moveChecker(start, end){
     let startRow = start[0];
     let startColumn  = start[1];
+
     let endRow = end[0];
     let endColumn = end[1];
 
     let checker = this.board.selectChecker(startRow, startColumn);
     this.board.grid[endRow][endColumn] = checker;
     this.board.grid[startRow][startColumn] = null;
+  
+    if(Math.abs((startRow - endRow) === 2)) {
+      this.board.killChecker([(startRow + endRow) / 2, (startColumn + endColumn) / 2]);
+    }
   }
 }
 
