@@ -8,7 +8,16 @@ const stringsToNumbs = (numbers) => {
 console.log(stringsToNumbs(strNums));
 
 // With the same numbers, find the sum of the even values
-const sumEvens;
+const b = [];
+ 
+for (var i = 0; i < strNums.length; ++i) { 
+    if ((strNums[i] % 2) === 0) {
+        b.push(strNums[i]);
+    }
+}
+
+const sumEvens = b.push(strNums[i]);
+
 
 console.log(sumEvens);
 
