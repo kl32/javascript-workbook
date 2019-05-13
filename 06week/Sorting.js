@@ -5,7 +5,7 @@ const stringsToNumbs = (numbers) => {
     return numbers.map(Number);     
 }
 
-console.log(stringsToNumbs(strNums));
+console.log("RETURN ARRAY AS NUMBERS: ", stringsToNumbs(strNums));
 
 // With the same numbers, find the sum of the even values
 const b = [];
@@ -19,14 +19,14 @@ for (var i = 0; i < strNums.length; ++i) {
 const sumEvens = b.push(strNums[i]);
 
 
-console.log(sumEvens);
+console.log("SUM OF EVEN VALUES: ", sumEvens);
 
 // Find the index of the first value when added to it's index = 512 (#ATX!!)
-const atxIdx;
+//const atxIdx;
 
-console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+//console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
-const weather = [
+ const weather = [
   { id: 5743823523151872,
     weather_state_name: "Light Cloud",
     weather_state_abbr: "lc",
@@ -91,13 +91,21 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
-],
+];
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates = 
-console.log(weatherStates)
+const weatherStates = weather.map(function(weatherstate) {
+  return weatherstate.weather_state_name;
+})
+
+console.log("WEATHER STATE NAME ARRAY: ", weatherStates)
 
 //find the id of the object in weather that has a min_temp of 15.915
 
-const idealTemp =
-console.log(idealTemp)
+const idealTemp = weather.map(function(idealtemp) {
+  if(idealtemp.min_temp === 15.915) {
+    return idealtemp.id; 
+  }
+})
+
+console.log("OBJECT ID MIN_TEMP OF 15.915: ",idealTemp)
