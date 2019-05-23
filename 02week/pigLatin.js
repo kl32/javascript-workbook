@@ -8,10 +8,23 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(str) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'],
+    trimmedWord = str.trim().toLowerCase(),
+    result = trimmedWord.split('');
 
-  // Your code here
-
+  if (vowels.includes(trimmedWord.charAt(0))) {
+    return str += 'yay';
+  } else {
+    for (var i = 0; i < trimmedWord.length; i++) {
+      if (!vowels.includes(trimmedWord[i])) {
+        result.push(result.shift());
+      } else {
+        result.push('ay');
+        return result.join('');
+      }
+    }
+  }
 }
 
 
